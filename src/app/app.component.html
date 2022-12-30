@@ -20,20 +20,26 @@
 </div>
 
 
-<table>
-  <tr>
-    <th>Nombre</th>
-    <th>Apellidos</th>
-    <th>Edad</th>
-    <th>Mayor de edad</th>
-  </tr>
-  <tr *ngFor="let persona of personas">
-    <td>{{ persona.nombre }}</td>
-    <td>{{ persona.apellidos }}</td>
-    <td>{{ persona.edad }}</td>
-    <td *ngIf="persona.edad >= 18; else menorDeEdad">Sí</td>
-    <ng-template #menorDeEdad>No</ng-template>
-  </tr>
+<label for="nombre">Nombre: </label><br>
+<input id="nombre" type="text" [(ngModel)]="persona.nombre">
+<br>
+<label for="edad">Edad: </label><br>
+<input id="edad" type="number" [(ngModel)]="persona.edad">
+<br>
+<button type="button" (click)="agregar()">Enviar</button>
+
+<table border="1">
+    <tr>
+        <th>Nombre</th>
+        <th>Edad</th>
+        <th>Tipo</th>
+    </tr>
+    <tr *ngFor="let p of personas">
+        <td>{{p.nombre}}</td>
+        <td>{{p.edad}}</td>
+        <td *ngIf="p.edad >=18">Mayor de edad</td>
+        <td *ngIf="p.edad <18">Menor de edad</td>
+    </tr>
 </table>
 
 
