@@ -7,37 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'tare8';
+  usu:string = 'usuario';
+  pass:string = '12345678';
 
-  personas: string;
-  nombre: string;
-  edad: number;
-  apellidos:string;
-  
-  usuario = 'Angular';
-  appPassword = '123456';
-  username: string;
-  loginPassword: string;
-  
-  isLoggedIn = false;
-  links = [
-    {
-      title: 'Inicio',
-      url: '/home'
-    },
-    {
-      title: 'Acerca de',
-      url: '/about'
-    },
-    {
-      title: 'Contacto',
-      url: '/contact'
-    }
-  ];
-
-  checkCredentials() {
-    if (this.username === this.usuario && this.loginPassword === this.appPassword) {
-      this.isLoggedIn = true;
-    } else {
-      this.isLoggedIn = false;
-  } 
-  }}
+  login(usuario:string, password:string){
+    if(usuario === this.usu && password === this.pass){
+      alert('usuario correcto')
+    }else{
+      alert('usuario INCORRECTO')
+    }  } }
